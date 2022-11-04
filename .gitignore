@@ -1,0 +1,72 @@
+#此 .gitignore 文件应放在 Unity 项目目录的根目录下
+#
+#从 https://github.com/github/gitignore/blob/main/Unity.gitignore 获取最新信息
+#
+/[Ll]伊布拉里/
+/[Tt]电磁脉冲/
+/[噢]北京/
+/[BB]乌尔德/
+/[BB]韦尔兹/
+/[Ll]奥格斯/
+/[呃]ser[ss]ettings/
+
+#内存捕获的大小可能会过大。
+#它们还可能包含极其敏感的数据
+/[毫米]埃默里捕获/
+
+#录音可能会变得过大
+/[Rr]共鸣/
+
+#如果您希望忽略资源商店工具插件，请取消注释此行
+# /[Aa]ssets/AssetStoreTools*
+
+#自动生成的 Jetbrains Rider 插件
+/[Aa]ssets/插件/编辑器/JetBrains*
+
+#视觉工作室缓存目录
+。与/
+
+#格拉德尔缓存目录
+.gradle/
+
+#自动生成的 VS/MD/Consulo 解决方案和项目文件
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*。.sln
+*.suo
+*。.tmp
+*。用户
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*。.pdb
+*。.mdb
+*.opendb
+*.VC.db
+
+#Unity3D 生成的元文件
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+#崩溃报告中的 Unity3D 生成的文件
+系统信息.txt
+
+#建立
+*。.apk
+*.aab
+*.unitypackage
+*。.app
+
+#崩溃生成的文件
+Crashlytics-build.properties
+
+#打包的可寻址对象
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+#自动生成的临时安卓资产
+/[Aa]ssets/[s]treamingAssets/aa.meta
+/[Aa]ssets/[s]treamingAssets/aa/*
