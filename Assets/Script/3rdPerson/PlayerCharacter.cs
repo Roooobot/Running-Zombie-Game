@@ -22,6 +22,7 @@ public class PlayerCharacter : MonoBehaviour
 
     private CharacterStats m_characterStatas;
     private float lastAttackTime;
+    AudioSource walkStep;
 
     RaycastHit hitInfo;
 
@@ -33,6 +34,8 @@ public class PlayerCharacter : MonoBehaviour
         m_animator = GetComponent<Animator>();
         m_characterStatas = GetComponent<CharacterStats>();
         m_backpackageController = GetComponent<BackpackageController>();
+        walkStep = GetComponent<AudioSource>();
+
     }
 
     private void OnEnable()
@@ -220,6 +223,11 @@ public class PlayerCharacter : MonoBehaviour
     {
         m_RightHand.SetActive(false);
     }
+    void PlayStepSource()
+    {
+        walkStep.Play();
+    }
+
 
     void SelectAttackTarget()
     {

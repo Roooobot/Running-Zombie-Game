@@ -7,6 +7,8 @@ public class SceneController : Singleton<SceneController>,IEndGameObserver
 {
     public GameObject playerPrefab;
     public SceneFader sceneFaderPrefab;
+    public SceneFader winFaderPrefab;
+    public SceneFader failFaderPrefab;
     GameObject player;
 
     bool fadeFinished;
@@ -62,12 +64,43 @@ public class SceneController : Singleton<SceneController>,IEndGameObserver
         yield break;
     }
 
+    IEnumerator Loadfail()
+    {
+        SceneFader fader = Instantiate(failFaderPrefab);
+        yield return StartCoroutine(fader.FadeOut(2f));
+        yield return StartCoroutine(fader.FadeIn(2f));
+        yield break;
+    }
+    IEnumerator Loadwin()
+    {
+        SceneFader fader = Instantiate(winFaderPrefab);
+        yield return StartCoroutine(fader.FadeOut(2f));
+        yield return StartCoroutine(fader.FadeIn(2f));
+        yield break;
+    }
+
     public void EndNotify()
     {
         if (fadeFinished)
         {
+            StartCoroutine(Loadfail());
             fadeFinished = false;
-            StartCoroutine(LoadMain());
+            Invoke(nameof(End), 4f);
         }
+    }
+    public void WinNotify()
+    {
+        if (fadeFinished)
+        {
+            StartCoroutine(Loadwin());
+            fadeFinished = false;
+            Invoke(nameof(End), 4f);
+        }
+    }
+
+
+    void End()
+    {
+        StartCoroutine(LoadMain());
     }
 }

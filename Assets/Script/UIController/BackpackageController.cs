@@ -14,9 +14,22 @@ public class BackpackageController : MonoBehaviour
 
     private void OnEnable()
     {
-        m_MyBag = GameManager.Instance.GetGameObject("BackPackage");
-        m_MyEquip = GameManager.Instance.GetGameObject("PlayerEquip");
-        Shop = GameManager.Instance.GetGameObject("Shop");
+        foreach (var item in FindObjectsOfType<GameObject>())
+        {
+            if (item.name == "BackPackage")
+            {
+                m_MyBag= item;
+            }
+            if (item.name == "PlayerEquip")
+            {
+                m_MyEquip = item;
+            }
+            if (item.name == "Shop")
+            {
+                Shop = item;
+            }
+
+        }
         character=GetComponentInParent<PlayerCharacter>();
     }
 

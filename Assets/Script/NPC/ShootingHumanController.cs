@@ -53,12 +53,17 @@ public class ShootingHumanController : MonoBehaviour,IEndGameObserver
     private void OnEnable()
     {
         GameManager.Instance.AddObserver(this);
+        GameManager.Instance.AddWinObserver(this);
+
     }
 
     private void OnDisable()
     {
         if (!GameManager.IsIntialized) return;
-        GameManager.Instance.RemoveObserver(this);
+        {
+            GameManager.Instance.RemoveObserver(this);
+            GameManager.Instance.RemoveWinObserver(this);
+        }
     }
     private void Update()
     {
@@ -151,4 +156,9 @@ public class ShootingHumanController : MonoBehaviour,IEndGameObserver
         isShooting = false;
         isPlayerDead=true;
     }
+    public void WinNotify()
+    {
+        return;
+    }
+
 }

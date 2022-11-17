@@ -7,10 +7,12 @@ public class Shoot : MonoBehaviour
 {
     public GameObject bulletPrefab;    //子弹预制体
     private Transform firePos;                //枪口
+    AudioSource shootSouce;
 
     private void OnEnable()
     {
         firePos = transform.GetChild(0).transform;
+        shootSouce = GetComponent<AudioSource>();
     }
 
     public void Shooting()
@@ -20,7 +22,7 @@ public class Shoot : MonoBehaviour
         bullet.transform.rotation = firePos.transform.rotation;
         firePos.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
         StartCoroutine(Close());
-
+        shootSouce.Play();
     }
 
     private IEnumerator Close()

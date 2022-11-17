@@ -16,6 +16,7 @@ public class CharacterMovement : MonoBehaviour
     //Ðý×ªËÙ¶È
     public float turnSpeed = 20f;
 
+
     private bool hasHorizontal;
     private bool hasVertical;
     private bool isWallking = false;
@@ -37,7 +38,6 @@ public class CharacterMovement : MonoBehaviour
         m_Animator.SetBool("IsWandering", isWandering);
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, CurrentInput, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
-
     }
     
     public void SetMoveInput(Vector3 input,bool iswandering)
@@ -52,5 +52,5 @@ public class CharacterMovement : MonoBehaviour
         m_Rigidbody.MovePosition(m_Rigidbody.position +  m_Animator.deltaPosition.magnitude * CurrentInput);
         m_Rigidbody.MoveRotation(m_Rotation);
     }
-
+    
 }

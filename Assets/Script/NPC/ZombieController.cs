@@ -25,6 +25,8 @@ public class ZombieController : MonoBehaviour,IEndGameObserver
     private bool isRun = false;
     private bool isDead = false;
     private bool isPlayerDead=false;
+    AudioSource walkStep;
+
 
     private void Awake()
     {
@@ -32,6 +34,8 @@ public class ZombieController : MonoBehaviour,IEndGameObserver
         m_Animator = GetComponentInChildren<Animator>();
         characterStats = GetComponent<CharacterStats>();
         m_Collider = GetComponentInChildren<Collider>();
+        walkStep = GetComponent<AudioSource>();
+
     }
 
     private void Start()
@@ -137,4 +141,13 @@ public class ZombieController : MonoBehaviour,IEndGameObserver
     {
         Hand.SetActive(false);
     }
+    void PlayStepSource()
+    {
+        walkStep.Play();
+    }
+    public void WinNotify()
+    {
+        return;
+    }
+
 }

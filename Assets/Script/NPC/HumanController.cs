@@ -25,7 +25,7 @@ public class HumanController : MonoBehaviour, IEndGameObserver
     public GameObject CurrentZombie { get { return currentZombie; } set { currentZombie = value; } }
     private CharacterStats currentZombieCharacterStats;             //当前要逃离的对象的状态数据
     public CharacterStats CurrentZombieCharacterStats { get { return currentZombieCharacterStats; } set { currentZombieCharacterStats = value; } }
-
+    AudioSource stepSource;
 
     public bool isGuard;                                                //是否为原地不动
     public float Speed = 2.5f;
@@ -49,6 +49,7 @@ public class HumanController : MonoBehaviour, IEndGameObserver
         m_Animator = GetComponentInChildren<Animator>();
         characterStats = GetComponent<CharacterStats>();
         m_Collider = GetComponentInChildren<Collider>();
+        stepSource=GetComponentInChildren<AudioSource>();
         guardPoint = transform.position;
     }
 
@@ -67,12 +68,16 @@ public class HumanController : MonoBehaviour, IEndGameObserver
     private void OnEnable()
     {
         GameManager.Instance.AddObserver(this);
+        GameManager.Instance.AddWinObserver(this);
     }
 
     private void OnDisable()
     {
         if (!GameManager.IsIntialized) return;
-        GameManager.Instance.RemoveObserver(this);
+        {
+            GameManager.Instance.RemoveObserver(this);
+            GameManager.Instance.RemoveWinObserver(this);
+        }
     }
     private void Update()
     {
@@ -198,5 +203,14 @@ public class HumanController : MonoBehaviour, IEndGameObserver
         isWalking = false;
         isRunning = false;
         isPlayerDead = true;
+    }
+    void PlayStepSource()
+    {
+        stepSource.Play();
+    }
+
+    public void WinNotify()
+    {
+        return;
     }
 }

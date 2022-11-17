@@ -6,8 +6,11 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public CharacterStats playerStats;
-
+    SceneController scene;
+    int count = 0;
     List<IEndGameObserver> endGameObservers = new();
+    List<IEndGameObserver> winGameObservers = new();
+
     List<GameObject> otherZombie =new();
     public void RigisterPlayer(CharacterStats player)
     {
@@ -19,15 +22,38 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         DontDestroyOnLoad(this);
     }
+    private void Update()
+    {
+        if(count == 8)
+        {
+            foreach (var observer in endGameObservers)
+            {
+                if (observer.GetType() == typeof(SceneController))
+                    observer.WinNotify();
+                else
+                    observer.EndNotify();
+            }
+            count = 0;
+        }
+    }
 
     public void AddObserver(IEndGameObserver observer)
     {
         endGameObservers.Add(observer);
     }
+    public void AddWinObserver(IEndGameObserver observer)
+    {
+        winGameObservers.Add(observer);
+    }
 
     public void RemoveObserver(IEndGameObserver observer)
     {
         endGameObservers.Remove(observer);
+    }
+    public void RemoveWinObserver(IEndGameObserver observer)
+    {
+        winGameObservers.Remove(observer);
+        count++;
     }
 
     public void AddZombie(GameObject zombie)

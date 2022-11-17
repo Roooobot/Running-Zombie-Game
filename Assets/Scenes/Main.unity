@@ -788,7 +788,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26304
+  m_Name: pb_Mesh75872
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1732,6 +1732,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 536761913249161143, guid: f8d524b888664174793cfa0bb924fc24, type: 3}
+      propertyPath: winFaderPrefab
+      value: 
+      objectReference: {fileID: 1640089814139771605, guid: 4a66ff4e99b07154f8a7e364d5a75d6c, type: 3}
+    - target: {fileID: 536761913249161143, guid: f8d524b888664174793cfa0bb924fc24, type: 3}
+      propertyPath: failFaderPrefab
+      value: 
+      objectReference: {fileID: 1640089814139771605, guid: f05a76cd6a13d4444afe3d02c437eda2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d524b888664174793cfa0bb924fc24, type: 3}
 --- !u!1 &1304932874
@@ -2431,7 +2439,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1796233108}
   - component: {fileID: 1796233107}
-  - component: {fileID: 1796233106}
   - component: {fileID: 1796233109}
   m_Layer: 0
   m_Name: Main Camera
@@ -2440,14 +2447,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1796233106
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1796233105}
-  m_Enabled: 1
 --- !u!20 &1796233107
 Camera:
   m_ObjectHideFlags: 0
@@ -5530,7 +5529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a978438612b9147ae87b91fb13be05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTarget: {fileID: 0}
 --- !u!4 &6902755968912855253
 Transform:
   m_ObjectHideFlags: 0
@@ -5927,7 +5925,7 @@ Animator:
   m_GameObject: {fileID: 3090886036455633254}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2ef8e6599b7f9934e8ff0d64c5325a1f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 35914994584424449bbe44de2a8cb78e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
